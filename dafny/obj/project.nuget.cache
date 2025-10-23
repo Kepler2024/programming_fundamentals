@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Vy5kOgOVCRR0GgoRJqgQnCi/DnGUl0TOCjovlNGpbMKLpkkVbG+b1mNIbWjmzaV2bwRpepUJnxCTw0/uZaVumg==",
+  "dgSpecHash": "dwIMZPkEyLyEDgg0Q+0iajCNaYWnlAorRf8eP73775wUHDlS7Kq9VZ78yBGuUT5tZHk7seYRDSUQfJ1PF+eYwA==",
   "success": true,
-  "projectFilePath": "/Users/harry/Desktop/programming_fundamentals/dafny/hello.csproj",
+  "projectFilePath": "/Users/harry/Desktop/programming_fundamentals/dafny/ex1.csproj",
   "expectedPackageFiles": [
     "/Users/harry/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/harry/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
