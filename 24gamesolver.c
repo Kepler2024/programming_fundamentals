@@ -1,5 +1,5 @@
 /* file    : 24gamesolver.c */
-/* author  : XueJin Cui, JiaYi Yang */
+/* author  : XueJin Cui */
 /* date    : 2025/10/24 */
 /* version : 2.0 */
 /* Description:
@@ -80,12 +80,11 @@ int isPossible(
             //calculate the new number and store the new expression
             newNumbers[index] = numbers[i] + numbers[j]; 
             snprintf (
-               newExpressions[index],100,"(%s + %s)",
-               expressions[i],expressions[j]);
+               newExpressions[index],100,
+               "(%s + %s)",expressions[i],expressions[j]);
 
             // use the new number and expression to do recursion
-            if (isPossible(
-                  length-1,newNumbers,newExpressions,result)) {
+            if (isPossible(length-1,newNumbers,newExpressions,result)) {
                return 1;
             }
 
@@ -93,11 +92,10 @@ int isPossible(
             //multiplication:
             newNumbers[index] = numbers[i] * numbers[j];
             snprintf (
-               newExpressions[index],100,"(%s * %s)",
-               expressions[i],expressions[j]);
+               newExpressions[index],100,
+               "(%s * %s)",expressions[i],expressions[j]);
             
-            if (isPossible(
-                  length-1,newNumbers,newExpressions,result)) {
+            if (isPossible(length-1,newNumbers,newExpressions,result)) {
                return 1;
             }
             
@@ -105,35 +103,32 @@ int isPossible(
             //subtraction (order 1):
             newNumbers[index] = numbers[i] - numbers[j];
             snprintf (
-               newExpressions[index],100,"(%s - %s)",
-               expressions[i],expressions[j]);
+               newExpressions[index],100,
+               "(%s - %s)",expressions[i],expressions[j]);
 
-            if (isPossible(
-                  length-1,newNumbers,newExpressions,result)) {
+            if (isPossible(length-1,newNumbers,newExpressions,result)) {
                return 1;
             }
 
             //subtraction (order 2):
             newNumbers[index] = numbers[j] - numbers[i];
             snprintf (
-               newExpressions[index],100,"(%s - %s)",
-               expressions[j],expressions[i]);
+               newExpressions[index],100,
+               "(%s - %s)",expressions[j],expressions[i]);
 
-            if (isPossible(
-                  length-1,newNumbers,newExpressions,result)) {
+            if (isPossible(length-1,newNumbers,newExpressions,result)) {
                return 1;
             }
 
             //division (order 1):
-            //for devision, we need to make sure the denominator is not zero
+            //for division, we need to make sure the denominator is not zero
             if (!isEqual(numbers[i],0)) {
                newNumbers[index] = numbers[j] / numbers[i];
                snprintf (
-                  newExpressions[index],100,"(%s / %s)",
-                  expressions[j],expressions[i]);
+                  newExpressions[index],100,
+                  "(%s / %s)",expressions[j],expressions[i]);
                
-               if (isPossible(
-                     length-1,newNumbers,newExpressions,result)) {
+               if (isPossible(length-1,newNumbers,newExpressions,result)) {
                   return 1;
                }
             }
@@ -142,11 +137,10 @@ int isPossible(
             if (!isEqual(numbers[j],0)) {
                newNumbers[index] = numbers[i] / numbers[j];
                snprintf (
-                  newExpressions[index],100,"(%s / %s)",
-                  expressions[i],expressions[j]);
+                  newExpressions[index],100,
+                  "(%s / %s)",expressions[i],expressions[j]);
 
-               if (isPossible(
-                     length-1,newNumbers,newExpressions,result)) {
+               if (isPossible(length-1,newNumbers,newExpressions,result)) {
                   return 1;
                }
             }
@@ -164,7 +158,7 @@ int main(int argc, char *argv[]) {
    if (isPossible(4,numbers,expressions,result)) {
       printf("Solution found: %s = 24\n",result);
    } else {
-      printf ("No solutions founded.\n");
+      printf ("No solution founded.\n");
    }
    return 0;
 }
