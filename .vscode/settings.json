@@ -2,6 +2,10 @@
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
         "stdio.h": "c",
-        "ios": "c"
+        "ios": "c",
+        "__locale": "c",
+        "string": "c",
+        "string_view": "c",
+        "variant": "c"
     }
 }
