@@ -7,7 +7,6 @@ void input(float numbers[],char expr[][100]) {
    printf("Input 4 numbers between 1 and 10 (inclusive):\n");
    for (int i=0;i<4;i++) {
       scanf ("%f",&a);
-      //check validity
       if ((a>=1) && (a<=10)) { 
          numbers[i] = a;
       } else {
