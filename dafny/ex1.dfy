@@ -1,27 +1,50 @@
-/* file     : exercise8.dfy */
+/* file     : termination.dfy */
 /* author   : Harry (qilin2603379191@gmail.com) */
-/* date     : 2025/10/22 */
+/* date     : 2025/11/10 */
 /* version  : 1.0 */
 /* description:
- * Dafny exercise 8
+ * lab7ex7
  */
 
+include "io.dfy"
 
-
-method exercise8(ghost x: nat, y: int) returns (z: int)
-  requires 2 * x - y == 3 || 4 * x + y == 42
-  ensures  z == x
+ghost function f(n: nat): int
 {
-  // If y is odd, then equation (1) must hold: 2*x - y == 3
-  // From this equation, we can solve x = (y + 3) / 2
-  if y % 2 == 1
-  {
-    z := (y + 3) / 2;
-  }
-  // Otherwise y is even, so equation (2) must hold: 4*x + y == 42
-  // From this equation, we can solve x = (42 - y) / 4
-  else
-  {
-    z := (42 - y) / 4;
+  if n == 0 then 1
+  else if n == 1 then 1
+  else if n % 2 == 0 then f(n/2) - f(n/2 - 1)
+  else f(n/2) + n/2
+}
+
+method computeF(m: nat) returns (x: int)
+  ensures x == f(m)
+  decreases m
+{
+  if m == 0 {
+    x := 1;
+  } else if m == 1 {
+    x := 1;
+  } else if m % 2 == 0 {
+    var k := m / 2;
+    var fk := computeF(k);          
+    var fkPrev := computeF(k - 1);  
+    x := fk - fkPrev;               
+  } else {
+    var k := m / 2;
+    var fk := computeF(k);          
+    x := fk + k;                   
   }
 }
+
+
+method Main()
+{
+  var n: int := 0;
+  while n < 20 
+  {
+    var fn := computeF(n);
+    print "fusc(", n, ")=", fn, ".\n";
+    n := n + 1;
+  }
+}
+
