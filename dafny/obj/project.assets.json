@@ -954,9 +954,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/harry/Desktop/programming_fundamentals/dafny/ex1.csproj",
-      "projectName": "ex1",
-      "projectPath": "/Users/harry/Desktop/programming_fundamentals/dafny/ex1.csproj",
+      "projectUniqueName": "/Users/harry/Desktop/programming_fundamentals/dafny/q4.csproj",
+      "projectName": "q4",
+      "projectPath": "/Users/harry/Desktop/programming_fundamentals/dafny/q4.csproj",
       "packagesPath": "/Users/harry/.nuget/packages/",
       "outputPath": "/Users/harry/Desktop/programming_fundamentals/dafny/obj/",
       "projectStyle": "PackageReference",
