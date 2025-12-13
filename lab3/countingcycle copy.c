@@ -3,7 +3,7 @@
 /* date    : 2025/10/27 */
 /* version : 1.0 */
 /* Description:
- * lab3_1 20%
+ * lab3_1 first attempt 30%
  */
 
 #include <stdio.h>
