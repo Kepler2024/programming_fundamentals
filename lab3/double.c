@@ -6,6 +6,13 @@
  * lab3_2
  * double a big integer
  * 100%
+ * highlight: 
+ * simulate the multiplication process digit by digit
+ * transfer char to int by subtracting '0'
+ * input function reads large number using getchar()
+ * shortcomings:
+ * "\n" is read and thus length is actually 1 more than expected
+ * maybe do not use do-while loop for input
  */
 
 #include <stdio.h>
