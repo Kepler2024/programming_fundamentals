@@ -72,6 +72,6 @@ int main(int argc, char *argv[]) {
    
    initialize(length,path);
    input(length,number);
-   print(length,number);
+   printf("%d\n",countingCycle(length,number,path));
    return 0;
 }
