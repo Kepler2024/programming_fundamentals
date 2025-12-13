@@ -38,7 +38,7 @@ int allVisited(int length, int stage[]) {
    return 1;
 }
 
-void print(int length, int a[]) {
+void print(int length, inta[]) {
    // print function to print the array
    for (int i=0;i<length;i++) {
       printf ("%d ",a[i]);
