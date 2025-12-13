@@ -1,10 +1,9 @@
 /* file    : countingc.c */
 /* author  : Harry (qilin2603379191@gmail.com) */
 /* date    : 2025/12/11 */
-/* version : 1.0 */
+/* version : 2.0 */
 /* Description:
- * lab3_1_thrid attempt 50%
- * Error: Chain is marked as visited when cycle is detected
+ * lab3_1_thrid attempt 100%!!!
  */
 
 #include <stdio.h>
@@ -39,18 +38,26 @@ int allVisited(int length, int stage[]) {
    return 1;
 }
 
+void print(int length, int a[]) {
+   // print function to print the array
+   for (int i=0;i<length;i++) {
+      printf ("%d ",a[i]);
+   }
+   printf ("\n");
+}
+
 int countingCycle(int length,int stage[],int number[]) {
    int count = 0;
-   int index1 = 0;
+   int start = 0;
 
-   while ((!allVisited(length,stage))&&(index1 < length)) {
+   while ((!allVisited(length,stage))&&(start < length)) {
 
-      if (stage[index1] != 0) {
-         index1++;
+      if (stage[start] != 0) {
+         start++;
          continue;
       } // skip if already visited or being visiting
 
-      int index = index1;
+      int index = start;
 
       while (1) {
 

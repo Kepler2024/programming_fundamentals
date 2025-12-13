@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 void input(int length, int number[]) {
    // Input function to read length numbers
    for (int i=0;i<length;i++) {
@@ -21,6 +22,37 @@ void initialize(int length, int a[]) {
    for (int i=0; i<length; i++) {
       a[i] = 0;
    }
+}
+
+int countingCycle(int length,int stage[],int number[] ) {
+
+   int count = 0;
+
+   for (int i=0;i<length;i++) {
+
+      if (stage[i] != 0) {
+         continue;
+      }
+
+      int index = i;
+
+      while (stage[index] == 0) {
+         stage[index] = 1;
+         index = number[index];
+      }
+
+      if (stage[index] == 1) {
+         stage[index] = 2;
+         count++;
+         for (int j=0;j<length;j++) {
+            if (stage[j] == 1) {
+               stage[j] = 2;
+            }
+         }
+         continue;
+      }
+   }
+   return count;
 }
 
 int main(int argc, char *argv[]) {
