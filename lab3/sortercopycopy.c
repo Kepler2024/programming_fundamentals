@@ -51,24 +51,12 @@ int main(int argc, char *argv[]) {
    int number[length];
    input(length,number);
 
-   while (1) {
-    char c;
-    if (scanf(" %c", &c) != 1) break;   // EOF
-    if (c == '#') break;
-
-    if (c != '(') continue;
-    ungetc(c, stdin);
-
-    int left, right;
-    if (scanf(" ( %d , %d )", &left, &right) != 2) {
-        // 丢弃到下一个 ')' 或 '#', 防止卡在坏字符上
-        int ch;
-        while ((ch = getchar()) != EOF && ch != ')' && ch != '#') {}
-        if (ch == '#') break;
-        continue;
-    }
-
-    reverse(left, right, number);
+   char c;
+   scanf("\n%c", &c);
+   while (c != '#') {
+      int a, b;
+      scanf("%d,%d)%c", &a, &b, &c);
+      reverse(a,b,number);
    }
    
    if (isAscending(length,number)) {
