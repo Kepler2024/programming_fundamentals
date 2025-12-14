@@ -16,38 +16,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void initialize(int length, int a[]) {
-   // initialize the range array to all length
-   // so that we know where the end is
-   for (int i=0; i<200000; i++) {
-      a[i] = length;
-   }
-}
-
-void input(int length,int number[],int range[]) {
+void input(int length,int number[]) {
    // input function to read the numbers and ranges
    for (int i = 0; i<length; i++) {
       scanf("%d",&number[i]);
    } // input the numbers
-
-   int left = 0;
-   int right = 1;
-
-   scanf("\n");// consume the newline character in the input
-   while (1) {
-      scanf(" ");// consume any spaces before the range input
-      
-      char input = getchar();
-      if (input == '#') {
-         break;
-      }// read the first character to check for termination
-
-      ungetc(input,stdin);// put the character back for normal reading
-      scanf("(%d,%d)",&range[left],&range[right]);
-      // use "(%d,%d)" format to read the range input
-      left += 2;
-      right += 2;
-   }
 }
 
 void reverse(int left, int right, int number[]) {
@@ -76,19 +49,24 @@ int main(int argc, char *argv[]) {
    int length;
    scanf("%d",&length);
    int number[length];
-   int range[200000];
-   initialize(length,range);
-   input(length,number,range);
-   
+   input(length,number);
 
    int left = 0;
-   int right = 1;
-   do {
-      reverse(range[left],range[right],number);
-      left += 2;
-      right += 2;
-   } while(range[left] != length);
-   // reverse each subarray according to the ranges
+   int right = 0;
+   scanf("\n");// consume the newline character in the input
+   while (1) {
+      scanf(" ");// consume any spaces before the range input
+      
+      char input = getchar();
+      if (input == '#') {
+         break;
+      }// read the first character to check for termination
+
+      ungetc(input,stdin);// put the character back for normal reading
+      scanf("(%d,%d)",&left,&right);
+      // use "(%d,%d)" format to read the range input
+      reverse(left,right,number);
+   }
 
    if (isAscending(length,number)) {
       printf("YES\n");
