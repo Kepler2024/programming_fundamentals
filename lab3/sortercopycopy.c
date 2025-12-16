@@ -48,16 +48,28 @@ int main(int argc, char *argv[]) {
    
    int length;
    scanf("%d",&length);
-   int number[length];
-   input(length,number);
-
-   char c;
-   scanf("\n%c", &c);
-   while (c != '#') {
-      int a, b;
-      scanf("%d,%d)%c", &a, &b, &c);
-      reverse(a,b,number);
+   int *number = malloc(length*sizeof(int));
+   for (int i=0; i < length; i++) {
+      scanf("%d", number+i);
    }
+
+   int cnt = 0;
+   char c;
+   if (scanf(" %c", &c) != 1) return 0;   // 读到第一个 '(' 或 '#'
+
+while (c != '#') {
+    int a, b;
+
+    if (c != '(') {                    // 防止读到杂字符
+        if (scanf(" %c", &c) != 1) break;
+        continue;
+    }
+
+    if (scanf(" %d , %d )", &a, &b) != 2) break;  // 允许空格
+    reverse(a, b, number);
+
+    if (scanf(" %c", &c) != 1) break;  // 读下一对的 '(' 或 '#'
+}
    
    if (isAscending(length,number)) {
       printf("YES\n");
